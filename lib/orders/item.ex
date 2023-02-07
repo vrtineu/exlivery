@@ -15,4 +15,8 @@ defmodule Exlivery.Orders.Item do
        quantity: quantity
      }}
   end
+
+  def build(_, _, _, _) do
+    {:error, "Invalid parameters"}
+  end
 end
