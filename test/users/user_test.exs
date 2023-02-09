@@ -15,7 +15,7 @@ defmodule Exlivery.Users.UserTest do
     test "when age is less than 18, returns an error" do
       response = User.build("Rua 1", "John Doe", "john@doe.com", "12345678901", 17)
 
-      expected_response = {:error, "Invalid parameters"}
+      expected_response = {:error, :invalid_user}
 
       assert response == expected_response
     end
