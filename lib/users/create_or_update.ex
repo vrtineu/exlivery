@@ -8,6 +8,10 @@ defmodule Exlivery.Users.CreateOrUpdate do
     |> save_user()
   end
 
-  defp save_user({:ok, %User{} = user}), do: UsersAgent.save(user)
+  defp save_user({:ok, %User{} = user}) do
+    UsersAgent.save(user)
+    {:ok, :user_created}
+  end
+
   defp save_user({:error, _}), do: {:error, :invalid_params}
 end
